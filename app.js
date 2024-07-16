@@ -10,7 +10,9 @@ const dokterRouter = require('./routes/dokterRoutes');
 const konsultasiRouter = require('./routes/konsultasiRoutes');
 const indexRoutes = require('./routes/index');
 dotenv.config();
+
 const app = express();
+
 app.use(express.json());
 app.use('/auth', loginRouter);
 app.use('/produk', produkRouter);
@@ -47,3 +49,5 @@ sequelize.sync({ force: false })
   .catch(err => {
     console.error('Error synchronizing database:', err);
   });
+
+  module.exports = app;
